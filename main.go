@@ -4,7 +4,7 @@ import (
 	// "fmt"
 	"net/http"
 
-	"github.com/WiviWonderWoman/My-first-Go-App/controllers"
+	"github.com/WiviWonderWoman/MyFirstGoApp/controllers"
 	// "github.com/WiviWonderWoman/My-first-Go-App/models"
 )
 

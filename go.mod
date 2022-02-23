@@ -1,3 +1,3 @@
-module github.com/WiviWonderWoman/My-first-Go-App
+module github.com/WiviWonderWoman/MyFirstGoApp
 
 go 1.17
