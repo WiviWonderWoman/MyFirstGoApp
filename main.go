@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/WiviWonderWoman/My-first-Go-App/models"
+)
 
 func main() {
-	fmt.Println("Hello World!")
+	u := models.User{
+		ID:        2,
+		FirstName: "Tricia",
+		LastName:  "McMillan",
+	}
+	fmt.Println(u)
 }
