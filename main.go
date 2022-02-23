@@ -7,19 +7,6 @@ import (
 	// "github.com/WiviWonderWoman/My-first-Go-App/models"
 )
 
-func infiniteLoops(run bool) {
-	if run {
-		var i int
-		for {
-			if i == 5 {
-				break //! without break this loop will be  INFINITE
-			}
-			fmt.Println(i)
-			i++
-		}
-	}
-}
-
 func main() {
 	// call function RegisterControllers
 	// controllers.RegisterControllers()
@@ -36,7 +23,8 @@ func main() {
 	fmt.Println(u) */
 	loopWithCondition(false)
 	loopTillConditionWithPostClause(false)
-	infiniteLoops(true)
+	infiniteLoop(false)
+	loopingOverCollections(false)
 }
 
 // loopWithCondition is a function that describes and print out for loops in Go
@@ -71,6 +59,45 @@ func loopTillConditionWithPostClause(run bool) {
 			}
 			fmt.Println(i)
 			i++
+		}
+	}
+}
+
+// infiniteLoop is a function that describes and print out for loops in Go
+func infiniteLoop(run bool) {
+	if run {
+		var i int
+		for {
+			if i == 5 {
+				break //! without break this loop will be  INFINITE
+			}
+			fmt.Println(i)
+			i++
+		}
+	}
+}
+
+// loopingOverCollections is a function that describes and print out for loops in Go
+func loopingOverCollections(run bool) {
+	if run {
+		slice := []int{1, 2, 3}
+		// loop aslong as i is less than the length(len) of slice
+		for i := 0; i < len(slice); i++ {
+			fmt.Println("the value:", slice[i], "at index:", i)
+		}
+
+		//* Same loop in the shorthanded version syntax
+		// the range keyword tells the compiler that we are going to passing in a collection type and will loop through the enthire collection
+		for i, v := range slice {
+			fmt.Println("i =", i, "v =", v)
+		}
+
+		// works with maps as well
+		wellKnownPorts := map[string]int{"http": 80, "https": 443}
+		// you can omit the v (value) and only get the k (keys) //* output would be: " http https "
+		// to omit the k (keys) and only get the v (value) = replace k with _ //* output would be: " 80 443 "
+		for k, v := range wellKnownPorts {
+			fmt.Println(k, v)
 		}
 	}
 }
