@@ -25,6 +25,7 @@ func main() {
 	loopTillConditionWithPostClause(false)
 	infiniteLoop(false)
 	loopingOverCollections(false)
+	panicFunction(false)
 }
 
 // loopWithCondition is a function that describes and print out for loops in Go
@@ -99,5 +100,16 @@ func loopingOverCollections(run bool) {
 		for k, v := range wellKnownPorts {
 			fmt.Println(k, v)
 		}
+	}
+}
+
+// panicFunction is a function that describes and print out a panic function in Go
+func panicFunction(run bool) {
+	if run {
+		fmt.Println("Starting web server")
+		//! PANIC when an unrecoverable error happens
+		panic("Something bad just happend")
+		// the following line will be marked as: //* " unreacheble code ""
+		//* fmt.Println("Web server started")
 	}
 }
