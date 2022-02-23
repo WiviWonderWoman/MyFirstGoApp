@@ -9,13 +9,12 @@ type userController struct {
 	userIDPattern *regexp.Regexp
 }
 
-//* newUserController is a CONSTUCTOR function
-func newUserController() *userController {
-	return &userController{
-		userIDPattern: regexp.MustCompile(`^/useers/(\d+)/?`),
-	}
+func (uc userController) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Hello from the User Controller!"))
 }
 
-func (uc userController) ServHTTP(write http.ResponseWriter, req *http.Request) {
-	write.Write([]byte("Hello from User Controller!"))
+func newUserController() *userController {
+	return &userController{
+		userIDPattern: regexp.MustCompile(`^/users/(\d+)/?`),
+	}
 }
