@@ -2,31 +2,17 @@ package main
 
 import (
 	"fmt"
-	// "net/http"
-	// "github.com/WiviWonderWoman/MyFirstGoApp/controllers"
-	// "github.com/WiviWonderWoman/My-first-Go-App/models"
 )
 
 func main() {
-	// call function RegisterControllers
-	// controllers.RegisterControllers()
-	// ListenAndServe listens on the TCP network address addr and then calls Serve with handler to handle requests on incoming connections.
-	//The handler is typically nil, in which case the DefaultServeMux is used.
-	// ListenAndServe always returns a non-nil error. //* func ListenAndServe(addr string, handler Handler) error
-	// http.ListenAndServe(":3000", nil)
 
-	/* u := models.User{
-		ID:        2,
-		FirstName: "Tricia",
-		LastName:  "McMillan",
-	}
-	fmt.Println(u) */
 	loopWithCondition(false)
 	loopTillConditionWithPostClause(false)
 	infiniteLoop(false)
 	loopingOverCollections(false)
 	panicFunction(false)
 	ifStatement(false)
+	switchStatment(false)
 }
 
 // loopWithCondition is a function that describes and print out for loops in Go
@@ -142,6 +128,30 @@ func ifStatement(run bool) {
 			fmt.Println("Similar user.")
 		} else {
 			fmt.Println("Diffrent user!")
+		}
+	}
+}
+
+// switchStatment is a function that describes and print out a switch statements in Go
+func switchStatment(run bool) {
+	if run {
+		type HTTPRequest struct {
+			Method string
+		}
+		r := HTTPRequest{Method: "GET"}
+		// switches in Go has implicit breaking
+		switch r.Method {
+		case "GET":
+			fmt.Println("Get request")
+			//fallthrough //* output: "Get request Delete request"
+		case "DELETE":
+			fmt.Println("Delete request")
+		case "POST":
+			fmt.Println("Post request")
+		case "PUT":
+			fmt.Println("Put request")
+		default:
+			fmt.Println("Unhandled method")
 		}
 	}
 }
