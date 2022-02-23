@@ -2,20 +2,14 @@ package main
 
 import "fmt"
 
-func structs(run bool) {
-	if run {
-		fmt.Println("Struct")
-	}
-}
-
 func main() {
 	arrays(false)
 	slices(false)
 	maps(false)
-	structs(true)
+	structs(false)
 }
 
-// arrays is a funktion to describe and print out arrays in Go
+// arrays is a function to describe and print out arrays in Go
 func arrays(run bool) {
 	if run {
 
@@ -35,7 +29,7 @@ func arrays(run bool) {
 	}
 }
 
-// slices is a funktion to describe and print out slices in Go
+// slices is a function to describe and print out slices in Go
 func slices(run bool) {
 	if run {
 		arr := [3]int{1, 2, 3}
@@ -62,7 +56,7 @@ func slices(run bool) {
 	}
 }
 
-// maps is a funktion to describe and print out maps in Go
+// maps is a function to describe and print out maps in Go
 func maps(run bool) {
 	if run {
 		m := map[string]int{"foo": 42}                  // a map consist of keys and values, m has string key and integer values
@@ -72,5 +66,35 @@ func maps(run bool) {
 		fmt.Println("value of 'foo' is now:", m["foo"]) // output: "value of 'foo' is now: 27"
 		delete(m, "foo")                                // deleting element out of a map
 		fmt.Println("empty map:", m)                    // output: "empty map: map[]"
+	}
+}
+
+// structs is a function to describe and print out structs in Go
+func structs(run bool) {
+	if run {
+		/* A struct can be defined at package level to be reached from the package scoop.
+		Define a stuct data typ that allow us to fields of difrent data types */
+		type user struct {
+			ID        int
+			Firstname string
+			LastName  string
+		}
+		var u user                                              // a variable of type 'user' - Initialization of user struct
+		fmt.Println("Struct 'user' without asigned values:", u) // output: "Struct 'user' without asigned values: {0  }"
+		u.ID = 1
+		u.Firstname = "Arthur"
+		u.LastName = "Dent"
+		fmt.Println("Struct 'user':", u) // output: "Struct 'user': {1 Arthur Dent}"
+
+		u2a := user{ID: 1, Firstname: "Arthur", LastName: "Dent"} // shorthand Initialization of user struct
+		// * Can be split up to multilines, remember to put COMMAS at the end of each line!
+		// * Compiler will autocomplete with semicollon at row ends leaving you with messaage:
+		//! " missing ',' before newline in composite literal "
+		u2b := user{
+			ID:        1,
+			Firstname: "Arthur",
+			LastName:  "Dent",
+		}
+		fmt.Println("Struct 'user':", u2a, u2b) // output: "Another struct 'user': {1 Arthur Dent} {1 Arthur Dent}"
 	}
 }
