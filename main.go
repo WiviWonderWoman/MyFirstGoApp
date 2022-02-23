@@ -1,16 +1,21 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
+	"net/http"
 
-	"github.com/WiviWonderWoman/My-first-Go-App/models"
+	"github.com/WiviWonderWoman/My-first-Go-App/controllers"
+	// "github.com/WiviWonderWoman/My-first-Go-App/models"
 )
 
 func main() {
-	u := models.User{
+
+	controllers.RegisterControllers()
+	http.ListenAndServe(":3000", nil)
+	/* u := models.User{
 		ID:        2,
 		FirstName: "Tricia",
 		LastName:  "McMillan",
 	}
-	fmt.Println(u)
+	fmt.Println(u) */
 }
