@@ -26,6 +26,7 @@ func main() {
 	infiniteLoop(false)
 	loopingOverCollections(false)
 	panicFunction(false)
+	ifStatement(false)
 }
 
 // loopWithCondition is a function that describes and print out for loops in Go
@@ -111,5 +112,36 @@ func panicFunction(run bool) {
 		panic("Something bad just happend")
 		// the following line will be marked as: //* " unreacheble code ""
 		//* fmt.Println("Web server started")
+	}
+}
+
+// ifStatement is a function that describes and print out a if statements in Go
+func ifStatement(run bool) {
+	if run {
+		type User struct {
+			ID        int
+			FirstName string
+			LastName  string
+		}
+
+		u1 := User{
+			ID:        1,
+			FirstName: "Arthur",
+			LastName:  "Dent",
+		}
+
+		u2 := User{
+			ID:        2,
+			FirstName: "Ford",
+			LastName:  "Prefect",
+		}
+
+		if u1 == u2 {
+			fmt.Println("Same user!")
+		} else if u1.FirstName == u2.FirstName {
+			fmt.Println("Similar user.")
+		} else {
+			fmt.Println("Diffrent user!")
+		}
 	}
 }
