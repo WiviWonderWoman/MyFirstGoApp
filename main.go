@@ -7,6 +7,19 @@ import (
 	// "github.com/WiviWonderWoman/My-first-Go-App/models"
 )
 
+func infiniteLoops(run bool) {
+	if run {
+		var i int
+		for {
+			if i == 5 {
+				break //! without break this loop will be  INFINITE
+			}
+			fmt.Println(i)
+			i++
+		}
+	}
+}
+
 func main() {
 	// call function RegisterControllers
 	// controllers.RegisterControllers()
@@ -21,9 +34,12 @@ func main() {
 		LastName:  "McMillan",
 	}
 	fmt.Println(u) */
-	loopWithCondition(true)
+	loopWithCondition(false)
+	loopTillConditionWithPostClause(false)
+	infiniteLoops(true)
 }
 
+// loopWithCondition is a function that describes and print out for loops in Go
 func loopWithCondition(run bool) {
 	if run {
 
@@ -37,6 +53,24 @@ func loopWithCondition(run bool) {
 				continue // continue till next lap without printing the 'continuing...'
 			}
 			fmt.Println("continuing...") // outputs NO 'continuing...' between 2 and 3
+		}
+	}
+}
+
+// loopTillConditionWithPostClause is a function that describes and print out for loops in Go
+func loopTillConditionWithPostClause(run bool) {
+	if run {
+		for i := 0; i < 5; i++ {
+			fmt.Println("loop", i)
+		}
+		// can be declared like this:
+		var i int
+		for {
+			if i == 5 {
+				break
+			}
+			fmt.Println(i)
+			i++
 		}
 	}
 }
